@@ -5,7 +5,9 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="javascripts/app.js"></script>
+    <script src="javascripts/services/todo_service.js"></script>
     <script src="javascripts/controllers/todo_controller.js"></script>
+    <script src="javascripts/directives/todo_item.js"></script>
 
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
@@ -27,12 +29,8 @@
       <th>Due Date</th>
       <th>Completed</th>
     </tr>
-    <tr ng-repeat="item in items | filter: filterCompleted">
-      <td>{{item.text}}</td>
-      <td>{{item.dueDate | date}}</td>
+    <tr todo-item ng-repeat="item in items | filter: filterCompleted">
       
-      <td><input type="checkbox" ng-model="item.completed"></td>
-      <td><a href="#" ng-click="deleteTodo($index)">X</a>
     </tr>
 
   </table>
